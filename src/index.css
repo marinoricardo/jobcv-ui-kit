@@ -2,50 +2,57 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
 
 @layer base {
   :root {
-    --background: 0 0% 98%;
-    --foreground: 250 20% 15%;
+    --background: 220 20% 97%;
+    --foreground: 220 25% 10%;
 
     --card: 0 0% 100%;
-    --card-foreground: 250 20% 15%;
+    --card-foreground: 220 25% 10%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 250 20% 15%;
+    --popover-foreground: 220 25% 10%;
 
-    --primary: 247 37% 46%;
+    --primary: 252 60% 50%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 250 15% 95%;
-    --secondary-foreground: 250 20% 15%;
+    --secondary: 220 15% 94%;
+    --secondary-foreground: 220 25% 20%;
 
-    --muted: 250 10% 94%;
-    --muted-foreground: 250 10% 45%;
+    --muted: 220 15% 92%;
+    --muted-foreground: 220 10% 45%;
 
-    --accent: 247 30% 92%;
-    --accent-foreground: 247 37% 36%;
+    --accent: 252 50% 95%;
+    --accent-foreground: 252 60% 40%;
 
-    --destructive: 0 84% 60%;
+    --destructive: 0 72% 51%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 250 15% 90%;
-    --input: 250 15% 90%;
-    --ring: 247 37% 46%;
+    --border: 220 15% 90%;
+    --input: 220 15% 90%;
+    --ring: 252 60% 50%;
 
-    --radius: 0.75rem;
+    --radius: 0.625rem;
 
-    /* Custom JobCV tokens */
-    --badge-urgent: 0 84% 60%;
+    /* JobCV Custom Tokens */
+    --badge-urgent: 0 72% 51%;
     --badge-urgent-foreground: 0 0% 100%;
-    --badge-remote: 142 70% 45%;
+    --badge-remote: 152 70% 40%;
     --badge-remote-foreground: 0 0% 100%;
-    --badge-fulltime: 217 91% 55%;
+    --badge-fulltime: 220 85% 55%;
     --badge-fulltime-foreground: 0 0% 100%;
-    --badge-parttime: 38 92% 50%;
+    --badge-parttime: 35 90% 52%;
     --badge-parttime-foreground: 0 0% 100%;
 
+    /* Card Effects */
+    --shadow-xs: 0 1px 2px 0 hsl(220 25% 10% / 0.03);
+    --shadow-sm: 0 1px 3px 0 hsl(220 25% 10% / 0.04), 0 1px 2px -1px hsl(220 25% 10% / 0.04);
+    --shadow-md: 0 4px 6px -1px hsl(220 25% 10% / 0.05), 0 2px 4px -2px hsl(220 25% 10% / 0.05);
+    --shadow-lg: 0 10px 15px -3px hsl(220 25% 10% / 0.06), 0 4px 6px -4px hsl(220 25% 10% / 0.06);
+
+    /* Sidebar */
     --sidebar-background: 0 0% 98%;
     --sidebar-foreground: 240 5.3% 26.1%;
     --sidebar-primary: 240 5.9% 10%;
@@ -54,41 +61,36 @@
     --sidebar-accent-foreground: 240 5.9% 10%;
     --sidebar-border: 220 13% 91%;
     --sidebar-ring: 217.2 91.2% 59.8%;
-
-    /* Shadows */
-    --shadow-card: 0 1px 3px 0 hsl(250 20% 15% / 0.06), 0 1px 2px -1px hsl(250 20% 15% / 0.06);
-    --shadow-card-hover: 0 10px 15px -3px hsl(250 20% 15% / 0.08), 0 4px 6px -4px hsl(250 20% 15% / 0.08);
-    --shadow-button: 0 1px 2px 0 hsl(250 20% 15% / 0.05);
   }
 
   .dark {
-    --background: 250 20% 8%;
+    --background: 220 25% 6%;
     --foreground: 0 0% 95%;
 
-    --card: 250 20% 12%;
+    --card: 220 25% 10%;
     --card-foreground: 0 0% 95%;
 
-    --popover: 250 20% 12%;
+    --popover: 220 25% 10%;
     --popover-foreground: 0 0% 95%;
 
-    --primary: 247 45% 60%;
+    --primary: 252 65% 60%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 250 15% 18%;
-    --secondary-foreground: 0 0% 95%;
+    --secondary: 220 20% 16%;
+    --secondary-foreground: 0 0% 90%;
 
-    --muted: 250 15% 20%;
-    --muted-foreground: 250 10% 60%;
+    --muted: 220 20% 18%;
+    --muted-foreground: 220 10% 55%;
 
-    --accent: 247 30% 25%;
-    --accent-foreground: 247 45% 75%;
+    --accent: 252 40% 20%;
+    --accent-foreground: 252 65% 70%;
 
     --destructive: 0 62% 50%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 250 15% 20%;
-    --input: 250 15% 20%;
-    --ring: 247 45% 60%;
+    --border: 220 20% 18%;
+    --input: 220 20% 18%;
+    --ring: 252 65% 60%;
 
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
@@ -107,13 +109,32 @@
   }
 
   body {
-    @apply bg-background text-foreground font-sans antialiased;
-    font-family: 'Inter', system-ui, sans-serif;
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-semibold tracking-tight;
   }
 }
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
+  }
+
+  .animate-in {
+    animation: fadeIn 0.3s ease-out;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(8px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 }
