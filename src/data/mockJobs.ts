@@ -3,6 +3,7 @@ import { Job } from '@/types/job';
 export const mockJobs: Job[] = [
   {
     id: '1',
+    slug: 'desenvolvedor-frontend-senior-vodacom',
     title: 'Desenvolvedor Frontend Senior',
     company: 'Vodacom Moçambique',
     location: 'Maputo',
@@ -27,9 +28,13 @@ export const mockJobs: Job[] = [
     ],
     postedAt: '2024-01-15',
     category: 'technology',
+    status: 'active',
+    views: 234,
+    applications: 12,
   },
   {
     id: '2',
+    slug: 'designer-ux-ui-mozabanco',
     title: 'Designer UX/UI',
     company: 'Mozabanco',
     location: 'Maputo',
@@ -52,9 +57,13 @@ export const mockJobs: Job[] = [
     ],
     postedAt: '2024-01-14',
     category: 'design',
+    status: 'active',
+    views: 156,
+    applications: 8,
   },
   {
     id: '3',
+    slug: 'analista-marketing-digital-cdm',
     title: 'Analista de Marketing Digital',
     company: 'Cervejas de Moçambique',
     location: 'Beira',
@@ -75,9 +84,13 @@ export const mockJobs: Job[] = [
     ],
     postedAt: '2024-01-13',
     category: 'marketing',
+    status: 'active',
+    views: 89,
+    applications: 5,
   },
   {
     id: '4',
+    slug: 'assistente-administrativo-vale',
     title: 'Assistente Administrativo',
     company: 'Vale Moçambique',
     location: 'Tete',
@@ -99,9 +112,13 @@ export const mockJobs: Job[] = [
     ],
     postedAt: '2024-01-12',
     category: 'operations',
+    status: 'active',
+    views: 312,
+    applications: 25,
   },
   {
     id: '5',
+    slug: 'engenheiro-software-python-standard-bank',
     title: 'Engenheiro de Software Python',
     company: 'Standard Bank Moçambique',
     location: 'Maputo',
@@ -124,9 +141,13 @@ export const mockJobs: Job[] = [
     ],
     postedAt: '2024-01-11',
     category: 'technology',
+    status: 'active',
+    views: 198,
+    applications: 15,
   },
   {
     id: '6',
+    slug: 'executivo-vendas-b2b-movitel',
     title: 'Executivo de Vendas B2B',
     company: 'Movitel',
     location: 'Nampula',
@@ -149,9 +170,13 @@ export const mockJobs: Job[] = [
     ],
     postedAt: '2024-01-10',
     category: 'sales',
+    status: 'paused',
+    views: 145,
+    applications: 9,
   },
   {
     id: '7',
+    slug: 'contabilista-senior-deloitte',
     title: 'Contabilista Senior',
     company: 'Deloitte Moçambique',
     location: 'Maputo',
@@ -174,9 +199,13 @@ export const mockJobs: Job[] = [
     ],
     postedAt: '2024-01-09',
     category: 'finance',
+    status: 'active',
+    views: 167,
+    applications: 11,
   },
   {
     id: '8',
+    slug: 'gestor-recursos-humanos-sasol',
     title: 'Gestor de Recursos Humanos',
     company: 'Sasol Moçambique',
     location: 'Inhambane',
@@ -199,6 +228,9 @@ export const mockJobs: Job[] = [
     ],
     postedAt: '2024-01-08',
     category: 'hr',
+    status: 'closed',
+    views: 203,
+    applications: 18,
   },
 ];
 
@@ -229,6 +261,7 @@ export const locations = [
 
 export interface BlogPost {
   id: string;
+  slug: string;
   title: string;
   excerpt: string;
   content: string;
@@ -239,11 +272,14 @@ export interface BlogPost {
   publishedAt: string;
   imageUrl: string;
   featured: boolean;
+  status?: 'draft' | 'published' | 'archived';
+  views?: number;
 }
 
 export const blogPosts: BlogPost[] = [
   {
     id: '1',
+    slug: 'como-preparar-cv-destaca-mercado-mocambicano',
     title: 'Como preparar um CV que se destaca no mercado moçambicano',
     excerpt: 'Dicas práticas para criar um currículo profissional que chama a atenção dos recrutadores em Moçambique.',
     content: '',
@@ -254,9 +290,12 @@ export const blogPosts: BlogPost[] = [
     publishedAt: '2024-01-14',
     imageUrl: '',
     featured: true,
+    status: 'published',
+    views: 1234,
   },
   {
     id: '2',
+    slug: '10-competencias-mais-procuradas-2024',
     title: 'As 10 competências mais procuradas em 2024',
     excerpt: 'Descubra quais são as habilidades que as empresas moçambicanas mais valorizam este ano.',
     content: '',
@@ -267,9 +306,12 @@ export const blogPosts: BlogPost[] = [
     publishedAt: '2024-01-12',
     imageUrl: '',
     featured: true,
+    status: 'published',
+    views: 987,
   },
   {
     id: '3',
+    slug: 'trabalho-remoto-mocambique-oportunidades-desafios',
     title: 'Trabalho remoto em Moçambique: oportunidades e desafios',
     excerpt: 'O trabalho remoto está a crescer no país. Saiba como aproveitar esta tendência.',
     content: '',
@@ -280,9 +322,12 @@ export const blogPosts: BlogPost[] = [
     publishedAt: '2024-01-10',
     imageUrl: '',
     featured: false,
+    status: 'published',
+    views: 654,
   },
   {
     id: '4',
+    slug: 'como-negociar-salario-confianca',
     title: 'Como negociar o seu salário com confiança',
     excerpt: 'Aprenda técnicas de negociação salarial para conseguir a remuneração que merece.',
     content: '',
@@ -293,9 +338,12 @@ export const blogPosts: BlogPost[] = [
     publishedAt: '2024-01-08',
     imageUrl: '',
     featured: false,
+    status: 'published',
+    views: 432,
   },
   {
     id: '5',
+    slug: 'entrevista-emprego-erros-comuns-evitar',
     title: 'Entrevista de emprego: erros comuns a evitar',
     excerpt: 'Conheça os erros mais frequentes nas entrevistas e como evitá-los para garantir o sucesso.',
     content: '',
@@ -306,9 +354,12 @@ export const blogPosts: BlogPost[] = [
     publishedAt: '2024-01-05',
     imageUrl: '',
     featured: false,
+    status: 'draft',
+    views: 0,
   },
   {
     id: '6',
+    slug: 'sector-tecnologico-mocambique-mercado-expansao',
     title: 'Sector tecnológico em Moçambique: um mercado em expansão',
     excerpt: 'Análise do crescimento do sector de TI e as oportunidades para profissionais da área.',
     content: '',
@@ -319,5 +370,124 @@ export const blogPosts: BlogPost[] = [
     publishedAt: '2024-01-03',
     imageUrl: '',
     featured: true,
+    status: 'published',
+    views: 876,
+  },
+];
+
+import { Company, Application } from '@/types/job';
+
+export const mockCompanies: Company[] = [
+  {
+    id: '1',
+    slug: 'vodacom-mocambique',
+    name: 'Vodacom Moçambique',
+    description: 'Líder em telecomunicações móveis em Moçambique, oferecendo serviços de voz, dados e soluções digitais.',
+    industry: 'Telecomunicações',
+    location: 'Maputo',
+    website: 'https://www.vodacom.co.mz',
+    employees: '500-1000',
+    founded: '2003',
+    email: 'rh@vodacom.co.mz',
+    activeJobs: 3,
+    verified: true,
+  },
+  {
+    id: '2',
+    slug: 'mozabanco',
+    name: 'Mozabanco',
+    description: 'Banco comercial moçambicano focado em soluções financeiras inovadoras para particulares e empresas.',
+    industry: 'Banca',
+    location: 'Maputo',
+    website: 'https://www.mozabanco.co.mz',
+    employees: '200-500',
+    founded: '2008',
+    email: 'carreiras@mozabanco.co.mz',
+    activeJobs: 2,
+    verified: true,
+  },
+  {
+    id: '3',
+    slug: 'vale-mocambique',
+    name: 'Vale Moçambique',
+    description: 'Empresa mineira multinacional com operações de extração de carvão em Tete.',
+    industry: 'Mineração',
+    location: 'Tete',
+    website: 'https://www.vale.com',
+    employees: '1000+',
+    founded: '2004',
+    email: 'rh.mz@vale.com',
+    activeJobs: 5,
+    verified: true,
+  },
+  {
+    id: '4',
+    slug: 'standard-bank-mocambique',
+    name: 'Standard Bank Moçambique',
+    description: 'Um dos maiores bancos de Moçambique, oferecendo serviços bancários completos.',
+    industry: 'Banca',
+    location: 'Maputo',
+    website: 'https://www.standardbank.co.mz',
+    employees: '500-1000',
+    founded: '1997',
+    email: 'careers@standardbank.co.mz',
+    activeJobs: 4,
+    verified: true,
+  },
+];
+
+export const mockApplications: Application[] = [
+  {
+    id: '1',
+    jobId: '1',
+    jobTitle: 'Desenvolvedor Frontend Senior',
+    candidateName: 'João Manuel Sitoe',
+    candidateEmail: 'joao.sitoe@email.com',
+    candidatePhone: '+258 84 123 4567',
+    status: 'reviewing',
+    appliedAt: '2024-01-16',
+    company: 'Vodacom Moçambique',
+  },
+  {
+    id: '2',
+    jobId: '1',
+    jobTitle: 'Desenvolvedor Frontend Senior',
+    candidateName: 'Maria Fernanda Cossa',
+    candidateEmail: 'maria.cossa@email.com',
+    candidatePhone: '+258 82 987 6543',
+    status: 'shortlisted',
+    appliedAt: '2024-01-15',
+    company: 'Vodacom Moçambique',
+  },
+  {
+    id: '3',
+    jobId: '2',
+    jobTitle: 'Designer UX/UI',
+    candidateName: 'Pedro Machava',
+    candidateEmail: 'pedro.machava@email.com',
+    status: 'pending',
+    appliedAt: '2024-01-14',
+    company: 'Mozabanco',
+  },
+  {
+    id: '4',
+    jobId: '3',
+    jobTitle: 'Analista de Marketing Digital',
+    candidateName: 'Ana Mondlane',
+    candidateEmail: 'ana.mondlane@email.com',
+    candidatePhone: '+258 86 456 7890',
+    status: 'hired',
+    appliedAt: '2024-01-10',
+    company: 'Cervejas de Moçambique',
+  },
+  {
+    id: '5',
+    jobId: '4',
+    jobTitle: 'Assistente Administrativo',
+    candidateName: 'Carlos Nguenha',
+    candidateEmail: 'carlos.nguenha@email.com',
+    status: 'rejected',
+    appliedAt: '2024-01-12',
+    company: 'Vale Moçambique',
   },
 ];

@@ -1,13 +1,14 @@
+import { Link } from 'react-router-dom';
 import { MapPin, Building2, Clock, Wallet } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
 import type { Job } from '@/types/job';
 
 interface JobCardProps {
   job: Job;
-  onViewDetails: (job: Job) => void;
+  onViewDetails?: (job: Job) => void;
 }
 
-export function JobCard({ job, onViewDetails }: JobCardProps) {
+export function JobCard({ job }: JobCardProps) {
   const formatDate = (dateStr: string) => {
     const date = new Date(dateStr);
     const now = new Date();
@@ -21,9 +22,9 @@ export function JobCard({ job, onViewDetails }: JobCardProps) {
   };
 
   return (
-    <article
-      className="group cursor-pointer rounded-2xl border border-border bg-card p-5 shadow-sm transition-all duration-200 hover:border-primary/30 hover:shadow-md"
-      onClick={() => onViewDetails(job)}
+    <Link
+      to={`/vaga/${job.slug}`}
+      className="group block cursor-pointer rounded-2xl border border-border bg-card p-5 shadow-sm transition-all duration-200 hover:border-primary/30 hover:shadow-md"
     >
       <div className="flex gap-4">
         {/* Company Logo Placeholder */}
@@ -75,6 +76,6 @@ export function JobCard({ job, onViewDetails }: JobCardProps) {
           </div>
         </div>
       </div>
-    </article>
+    </Link>
   );
 }

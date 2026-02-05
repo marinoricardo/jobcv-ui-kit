@@ -3,8 +3,6 @@ import { Header } from '@/components/Header';
 import { SearchBar } from '@/components/SearchBar';
 import { FilterBar } from '@/components/FilterBar';
 import { JobCard } from '@/components/JobCard';
-import { JobDetailModal } from '@/components/JobDetailModal';
-import { ApplicationModal } from '@/components/ApplicationModal';
 import { Footer } from '@/components/Footer';
 import { mockJobs } from '@/data/mockJobs';
 import { Briefcase, Users, Building2, TrendingUp } from 'lucide-react';
@@ -18,10 +16,6 @@ const Index = () => {
     location: '',
     remote: false,
   });
-
-  const [selectedJob, setSelectedJob] = useState<Job | null>(null);
-  const [isDetailOpen, setIsDetailOpen] = useState(false);
-  const [isApplicationOpen, setIsApplicationOpen] = useState(false);
 
   const filteredJobs = useMemo(() => {
     return mockJobs.filter((job) => {
@@ -54,17 +48,6 @@ const Index = () => {
       return true;
     });
   }, [filters]);
-
-  const handleViewDetails = (job: Job) => {
-    setSelectedJob(job);
-    setIsDetailOpen(true);
-  };
-
-  const handleApply = (job: Job) => {
-    setSelectedJob(job);
-    setIsDetailOpen(false);
-    setIsApplicationOpen(true);
-  };
 
   const handleClearFilters = () => {
     setFilters({
@@ -171,7 +154,7 @@ const Index = () => {
 
             <div className="space-y-4">
               {filteredJobs.map((job) => (
-                <JobCard key={job.id} job={job} onViewDetails={handleViewDetails} />
+                <JobCard key={job.id} job={job} />
               ))}
 
               {filteredJobs.length === 0 && (
@@ -193,20 +176,6 @@ const Index = () => {
       </main>
 
       <Footer />
-
-      {/* Modals */}
-      <JobDetailModal
-        job={selectedJob}
-        isOpen={isDetailOpen}
-        onClose={() => setIsDetailOpen(false)}
-        onApply={handleApply}
-      />
-
-      <ApplicationModal
-        job={selectedJob}
-        isOpen={isApplicationOpen}
-        onClose={() => setIsApplicationOpen(false)}
-      />
     </div>
   );
 };

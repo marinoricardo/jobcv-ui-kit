@@ -57,8 +57,10 @@ export function Header() {
         </nav>
 
         <div className="hidden items-center gap-3 md:flex">
-          <Button variant="ghost" size="sm">
+          <Button variant="ghost" size="sm" asChild>
+            <Link to="/login">
             Entrar
+            </Link>
           </Button>
           <Button size="sm">
             Publicar Vaga
@@ -111,8 +113,10 @@ export function Header() {
               Blog
             </Link>
             <div className="mt-4 flex flex-col gap-2 border-t border-border pt-4">
-              <Button variant="outline" className="w-full justify-center">
+              <Button variant="outline" className="w-full justify-center" asChild>
+                <Link to="/login">
                 Entrar
+                </Link>
               </Button>
               <Button className="w-full justify-center">
                 Publicar Vaga

@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
@@ -26,7 +27,7 @@ function BlogCard({ post, featured = false }: { post: BlogPost; featured?: boole
 
   if (featured) {
     return (
-      <article className="group cursor-pointer overflow-hidden rounded-2xl border border-border bg-card shadow-sm transition-all duration-300 hover:shadow-lg">
+      <Link to={`/blog/${post.slug}`} className="group block cursor-pointer overflow-hidden rounded-2xl border border-border bg-card shadow-sm transition-all duration-300 hover:shadow-lg">
         <div className="aspect-[16/9] bg-gradient-to-br from-primary/20 via-accent to-primary/10 p-8">
           <div className="flex h-full flex-col justify-end">
             <Badge variant="secondary" className="mb-4 w-fit gap-1.5">
@@ -59,12 +60,12 @@ function BlogCard({ post, featured = false }: { post: BlogPost; featured?: boole
             </div>
           </div>
         </div>
-      </article>
+      </Link>
     );
   }
 
   return (
-    <article className="group cursor-pointer rounded-2xl border border-border bg-card p-5 shadow-sm transition-all duration-300 hover:border-primary/30 hover:shadow-md">
+    <Link to={`/blog/${post.slug}`} className="group block cursor-pointer rounded-2xl border border-border bg-card p-5 shadow-sm transition-all duration-300 hover:border-primary/30 hover:shadow-md">
       <Badge variant="secondary" className="mb-3 gap-1.5">
         {categoryIcons[post.category]}
         {post.category}
@@ -85,7 +86,7 @@ function BlogCard({ post, featured = false }: { post: BlogPost; featured?: boole
           {post.readTime}
         </div>
       </div>
-    </article>
+    </Link>
   );
 }
 
