@@ -17,8 +17,10 @@
    CheckCircle2,
    Calendar
  } from 'lucide-react';
- import { useState } from 'react';
- import { ApplicationModal } from '@/components/ApplicationModal';
+import { useState } from 'react';
+import { ApplicationModal } from '@/components/ApplicationModal';
+import { MobileNavigation } from '@/components/MobileNavigation';
+import { SimilarJobs } from '@/components/SimilarJobs';
  
  export default function VagaDetalhes() {
    const { slug } = useParams<{ slug: string }>();
@@ -237,18 +239,24 @@
                      ))}
                  </div>
                </div>
-             </div>
-           </div>
-         </div>
-       </main>
- 
-       <Footer />
- 
-       <ApplicationModal
-         job={job}
-         isOpen={isApplicationOpen}
-         onClose={() => setIsApplicationOpen(false)}
-       />
-     </div>
-   );
- }
+              </div>
+            </div>
+          </div>
+
+          {/* Similar Jobs Section - Mobile */}
+          <div className="lg:hidden">
+            <SimilarJobs currentJob={job} jobs={mockJobs} />
+          </div>
+        </main>
+
+        <Footer />
+        <MobileNavigation />
+
+        <ApplicationModal
+          job={job}
+          isOpen={isApplicationOpen}
+          onClose={() => setIsApplicationOpen(false)}
+        />
+      </div>
+    );
+  }

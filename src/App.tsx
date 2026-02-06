@@ -10,6 +10,7 @@ import NotFound from "./pages/NotFound";
 import VagaDetalhes from "./pages/VagaDetalhes";
 import BlogPost from "./pages/BlogPost";
 import Login from "./pages/Login";
+import Precos from "./pages/Precos";
 
 // Admin Pages
 import AdminDashboard from "./pages/admin/AdminDashboard";
@@ -27,6 +28,8 @@ import EmpresaVagas from "./pages/empresa/EmpresaVagas";
 // Candidato Pages
 import CandidatoDashboard from "./pages/candidato/CandidatoDashboard";
 import CandidatoCandidaturas from "./pages/candidato/CandidatoCandidaturas";
+import Alertas from "./pages/candidato/Alertas";
+import Guardadas from "./pages/candidato/Guardadas";
 
 const queryClient = new QueryClient();
 
@@ -42,6 +45,7 @@ const App = () => (
           <Route path="/blog" element={<Blog />} />
           <Route path="/blog/:slug" element={<BlogPost />} />
           <Route path="/empresas" element={<Empresas />} />
+          <Route path="/precos" element={<Precos />} />
           <Route path="/login" element={<Login />} />
           
           {/* Admin Routes */}
@@ -64,6 +68,8 @@ const App = () => (
           {/* Candidato Routes */}
           <Route path="/candidato/dashboard" element={<CandidatoDashboard />} />
           <Route path="/candidato/candidaturas" element={<CandidatoCandidaturas />} />
+          <Route path="/candidato/alertas" element={<Alertas />} />
+          <Route path="/candidato/guardadas" element={<Guardadas />} />
           
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />

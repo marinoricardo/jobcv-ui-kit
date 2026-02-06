@@ -1,5 +1,6 @@
 import { Briefcase, Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { ThemeToggle } from '@/components/ThemeToggle';
 import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 
@@ -54,16 +55,29 @@ export function Header() {
           >
             Blog
           </Link>
+          <Link
+            to="/precos"
+            className={`rounded-lg px-4 py-2 text-sm font-medium transition-colors ${
+              isActive('/precos') 
+                ? 'bg-accent text-accent-foreground' 
+                : 'text-muted-foreground hover:bg-secondary hover:text-foreground'
+            }`}
+          >
+            Preços
+          </Link>
         </nav>
 
-        <div className="hidden items-center gap-3 md:flex">
+        <div className="hidden items-center gap-2 md:flex">
+          <ThemeToggle />
           <Button variant="ghost" size="sm" asChild>
             <Link to="/login">
             Entrar
             </Link>
           </Button>
-          <Button size="sm">
-            Publicar Vaga
+          <Button size="sm" asChild>
+            <Link to="/precos">
+              Publicar Vaga
+            </Link>
           </Button>
         </div>
 
@@ -112,14 +126,29 @@ export function Header() {
             >
               Blog
             </Link>
+            <Link
+              to="/precos"
+              onClick={() => setIsMenuOpen(false)}
+              className={`rounded-lg px-4 py-3 text-sm font-medium ${
+                isActive('/precos') ? 'bg-accent text-accent-foreground' : 'text-muted-foreground'
+              }`}
+            >
+              Preços
+            </Link>
             <div className="mt-4 flex flex-col gap-2 border-t border-border pt-4">
+              <div className="flex items-center justify-between px-4 py-2">
+                <span className="text-sm text-muted-foreground">Tema</span>
+                <ThemeToggle />
+              </div>
               <Button variant="outline" className="w-full justify-center" asChild>
                 <Link to="/login">
                 Entrar
                 </Link>
               </Button>
-              <Button className="w-full justify-center">
-                Publicar Vaga
+              <Button className="w-full justify-center" asChild>
+                <Link to="/precos">
+                  Publicar Vaga
+                </Link>
               </Button>
             </div>
           </nav>

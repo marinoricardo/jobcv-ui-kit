@@ -1,4 +1,5 @@
 export interface Job {
+  isFeatured?: boolean;
   id: string;
   slug: string;
   title: string;
