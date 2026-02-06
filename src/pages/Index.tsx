@@ -3,10 +3,16 @@ import { Header } from '@/components/Header';
 import { SearchBar } from '@/components/SearchBar';
 import { FilterBar } from '@/components/FilterBar';
 import { JobCard } from '@/components/JobCard';
+import { SwipeableJobCard } from '@/components/SwipeableJobCard';
 import { Footer } from '@/components/Footer';
+import { MobileNavigation } from '@/components/MobileNavigation';
+import { FilterModal } from '@/components/FilterModal';
+import { QuickApplyButton } from '@/components/QuickApplyButton';
 import { mockJobs } from '@/data/mockJobs';
-import { Briefcase, Users, Building2, TrendingUp } from 'lucide-react';
+import { Briefcase, Users, Building2, TrendingUp, Sparkles } from 'lucide-react';
 import type { Job, JobCategory, JobType, JobFilters } from '@/types/job';
+import { Badge } from '@/components/ui/badge';
+import { Link } from 'react-router-dom';
 
 const Index = () => {
   const [filters, setFilters] = useState<JobFilters>({
@@ -16,6 +22,8 @@ const Index = () => {
     location: '',
     remote: false,
   });
+  const [salaryRange, setSalaryRange] = useState([0, 300000]);
+  const [useSwipeCards, setUseSwipeCards] = useState(true);
 
   const filteredJobs = useMemo(() => {
     return mockJobs.filter((job) => {
@@ -49,6 +57,9 @@ const Index = () => {
     });
   }, [filters]);
 
+  // Featured jobs (simulated)
+  const featuredJobs = mockJobs.filter((job) => job.isUrgent).slice(0, 3);
+
   const handleClearFilters = () => {
     setFilters({
       search: '',
@@ -57,16 +68,36 @@ const Index = () => {
       location: '',
       remote: false,
     });
+    setSalaryRange([0, 300000]);
+  };
+
+  const activeFiltersCount = [
+    filters.category !== 'all',
+    filters.type !== 'all',
+    filters.remote,
+    salaryRange[0] > 0 || salaryRange[1] < 300000,
+  ].filter(Boolean).length;
+
+  const handleSaveJob = (job: Job) => {
+    console.log('Saved job:', job.title);
+  };
+
+  const handleQuickApply = (job: Job) => {
+    console.log('Quick apply:', job.title);
   };
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background pb-20 md:pb-0">
       <Header />
 
       {/* Hero Section */}
       <section className="border-b border-border bg-gradient-to-b from-accent/40 to-background py-12 md:py-20">
         <div className="container">
           <div className="mx-auto max-w-3xl text-center">
+            <Badge variant="secondary" className="mb-4 gap-1.5">
+              <Sparkles className="h-3 w-3" />
+              +50 novas vagas esta semana
+            </Badge>
             <h1 className="mb-4 text-3xl font-bold tracking-tight text-foreground md:text-4xl lg:text-5xl">
               Encontre a sua próxima
               <span className="block text-primary">oportunidade em Moçambique</span>
@@ -116,11 +147,40 @@ const Index = () => {
         </div>
       </section>
 
+      {/* Featured Jobs - Mobile */}
+      {featuredJobs.length > 0 && (
+        <section className="border-b border-border py-6 md:hidden">
+          <div className="container">
+            <h2 className="mb-4 text-lg font-semibold text-foreground">
+              🔥 Vagas em Destaque
+            </h2>
+            <div className="flex gap-3 overflow-x-auto pb-2 scrollbar-hide">
+              {featuredJobs.map((job) => (
+                <Link
+                  key={job.id}
+                  to={`/vaga/${job.slug}`}
+                  className="flex min-w-[280px] items-center gap-3 rounded-xl border border-primary/20 bg-primary/5 p-4"
+                >
+                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-primary/10">
+                    <Building2 className="h-5 w-5 text-primary" />
+                  </div>
+                  <div className="flex-1 min-w-0">
+                    <p className="font-medium text-foreground truncate">{job.title}</p>
+                    <p className="text-sm text-muted-foreground truncate">{job.company}</p>
+                  </div>
+                  <Badge variant="urgent" className="shrink-0">Urgente</Badge>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
       {/* Main Content */}
-      <main className="container py-10">
+      <main className="container py-6 md:py-10">
         <div className="grid gap-8 lg:grid-cols-4">
-          {/* Sidebar - Filters */}
-          <aside className="order-2 lg:order-1 lg:col-span-1">
+          {/* Sidebar - Filters (Desktop) */}
+          <aside className="hidden lg:block lg:col-span-1">
             <div className="sticky top-20 rounded-2xl border border-border bg-card p-5 shadow-sm">
               <h2 className="mb-5 text-lg font-semibold text-foreground">Filtros</h2>
               <FilterBar
@@ -142,7 +202,7 @@ const Index = () => {
           </aside>
 
           {/* Job Listings */}
-          <div className="order-1 lg:order-2 lg:col-span-3">
+          <div className="lg:col-span-3">
             <div className="mb-6 flex items-center justify-between">
               <div>
                 <h2 className="text-xl font-semibold text-foreground">Vagas Disponíveis</h2>
@@ -150,11 +210,43 @@ const Index = () => {
                   {filteredJobs.length} oportunidades encontradas
                 </p>
               </div>
+
+              {/* Mobile Filter Button */}
+              <FilterModal
+                category={filters.category}
+                type={filters.type}
+                remote={filters.remote}
+                salaryRange={salaryRange}
+                onCategoryChange={(category) =>
+                  setFilters((prev) => ({ ...prev, category }))
+                }
+                onTypeChange={(type) =>
+                  setFilters((prev) => ({ ...prev, type }))
+                }
+                onRemoteChange={(remote) =>
+                  setFilters((prev) => ({ ...prev, remote }))
+                }
+                onSalaryRangeChange={setSalaryRange}
+                onClearFilters={handleClearFilters}
+                activeFiltersCount={activeFiltersCount}
+              />
             </div>
 
             <div className="space-y-4">
               {filteredJobs.map((job) => (
-                <JobCard key={job.id} job={job} />
+                <div key={job.id}>
+                  {/* Swipeable cards on mobile, regular cards on desktop */}
+                  <div className="md:hidden">
+                    <SwipeableJobCard
+                      job={job}
+                      onSave={handleSaveJob}
+                      onQuickApply={handleQuickApply}
+                    />
+                  </div>
+                  <div className="hidden md:block">
+                    <JobCard job={job} />
+                  </div>
+                </div>
               ))}
 
               {filteredJobs.length === 0 && (
@@ -176,6 +268,12 @@ const Index = () => {
       </main>
 
       <Footer />
+      
+      {/* Mobile Navigation */}
+      <MobileNavigation />
+
+      {/* Quick Apply FAB */}
+      <QuickApplyButton job={filteredJobs[0] || null} />
     </div>
   );
 };
