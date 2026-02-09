@@ -11,6 +11,9 @@ import VagaDetalhes from "./pages/VagaDetalhes";
 import BlogPost from "./pages/BlogPost";
 import Login from "./pages/Login";
 import Precos from "./pages/Precos";
+import QuemSomos from "./pages/QuemSomos";
+import TermosUso from "./pages/TermosUso";
+import PoliticaPrivacidade from "./pages/PoliticaPrivacidade";
 
 // Admin Pages
 import AdminDashboard from "./pages/admin/AdminDashboard";
@@ -47,6 +50,9 @@ const App = () => (
           <Route path="/empresas" element={<Empresas />} />
           <Route path="/precos" element={<Precos />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/quem-somos" element={<QuemSomos />} />
+          <Route path="/termos-de-uso" element={<TermosUso />} />
+          <Route path="/politica-de-privacidade" element={<PoliticaPrivacidade />} />
           
           {/* Admin Routes */}
           <Route path="/admin" element={<AdminDashboard />} />
