@@ -69,16 +69,6 @@ export function Header() {
 
         <div className="hidden items-center gap-2 md:flex">
           <ThemeToggle />
-          <Button variant="ghost" size="sm" asChild>
-            <Link to="/login">
-            Entrar
-            </Link>
-          </Button>
-          <Button size="sm" asChild>
-            <Link to="/precos">
-              Publicar Vaga
-            </Link>
-          </Button>
         </div>
 
         {/* Mobile Menu Button */}
@@ -140,16 +130,6 @@ export function Header() {
                 <span className="text-sm text-muted-foreground">Tema</span>
                 <ThemeToggle />
               </div>
-              <Button variant="outline" className="w-full justify-center" asChild>
-                <Link to="/login">
-                Entrar
-                </Link>
-              </Button>
-              <Button className="w-full justify-center" asChild>
-                <Link to="/precos">
-                  Publicar Vaga
-                </Link>
-              </Button>
             </div>
           </nav>
         </div>

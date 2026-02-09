@@ -2,15 +2,13 @@ import { useState, useMemo } from 'react';
 import { Header } from '@/components/Header';
 import { SearchBar } from '@/components/SearchBar';
 import { FilterBar } from '@/components/FilterBar';
-import { JobCard } from '@/components/JobCard';
-import { SwipeableJobCard } from '@/components/SwipeableJobCard';
+import { JobListItem } from '@/components/JobListItem';
 import { Footer } from '@/components/Footer';
 import { MobileNavigation } from '@/components/MobileNavigation';
 import { FilterModal } from '@/components/FilterModal';
-import { QuickApplyButton } from '@/components/QuickApplyButton';
 import { mockJobs } from '@/data/mockJobs';
 import { Briefcase, Users, Building2, TrendingUp, Sparkles } from 'lucide-react';
-import type { Job, JobCategory, JobType, JobFilters } from '@/types/job';
+import type { JobFilters } from '@/types/job';
 import { Badge } from '@/components/ui/badge';
 import { Link } from 'react-router-dom';
 
@@ -23,7 +21,6 @@ const Index = () => {
     remote: false,
   });
   const [salaryRange, setSalaryRange] = useState([0, 300000]);
-  const [useSwipeCards, setUseSwipeCards] = useState(true);
 
   const filteredJobs = useMemo(() => {
     return mockJobs.filter((job) => {
@@ -77,14 +74,6 @@ const Index = () => {
     filters.remote,
     salaryRange[0] > 0 || salaryRange[1] < 300000,
   ].filter(Boolean).length;
-
-  const handleSaveJob = (job: Job) => {
-    console.log('Saved job:', job.title);
-  };
-
-  const handleQuickApply = (job: Job) => {
-    console.log('Quick apply:', job.title);
-  };
 
   return (
     <div className="min-h-screen bg-background pb-20 md:pb-0">
@@ -232,25 +221,13 @@ const Index = () => {
               />
             </div>
 
-            <div className="space-y-4">
+            <div className="overflow-hidden rounded-xl border border-border bg-card">
               {filteredJobs.map((job) => (
-                <div key={job.id}>
-                  {/* Swipeable cards on mobile, regular cards on desktop */}
-                  <div className="md:hidden">
-                    <SwipeableJobCard
-                      job={job}
-                      onSave={handleSaveJob}
-                      onQuickApply={handleQuickApply}
-                    />
-                  </div>
-                  <div className="hidden md:block">
-                    <JobCard job={job} />
-                  </div>
-                </div>
+                <JobListItem key={job.id} job={job} />
               ))}
 
               {filteredJobs.length === 0 && (
-                <div className="flex flex-col items-center justify-center rounded-2xl border border-border bg-card py-16">
+                <div className="flex flex-col items-center justify-center py-16">
                   <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-secondary">
                     <Briefcase className="h-8 w-8 text-muted-foreground" />
                   </div>
@@ -271,9 +248,6 @@ const Index = () => {
       
       {/* Mobile Navigation */}
       <MobileNavigation />
-
-      {/* Quick Apply FAB */}
-      <QuickApplyButton job={filteredJobs[0] || null} />
     </div>
   );
 };
