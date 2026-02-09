@@ -34,7 +34,7 @@ export function Footer() {
                 </Link>
               </li>
               <li>
-                <a href="#" className="text-muted-foreground transition-colors hover:text-primary">
+                <a href="https://www.meucv.app" target="_blank" rel="noopener noreferrer" className="text-muted-foreground transition-colors hover:text-primary">
                   Criar Currículo
                 </a>
               </li>
@@ -85,24 +85,24 @@ export function Footer() {
             <h4 className="mb-4 text-sm font-semibold text-foreground">Sobre</h4>
             <ul className="space-y-2.5 text-sm">
               <li>
-                <a href="#" className="text-muted-foreground transition-colors hover:text-primary">
+                <Link to="/quem-somos" className="text-muted-foreground transition-colors hover:text-primary">
                   Quem Somos
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#" className="text-muted-foreground transition-colors hover:text-primary">
+                <Link to="/termos-de-uso" className="text-muted-foreground transition-colors hover:text-primary">
                   Termos de Uso
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#" className="text-muted-foreground transition-colors hover:text-primary">
+                <Link to="/politica-de-privacidade" className="text-muted-foreground transition-colors hover:text-primary">
                   Política de Privacidade
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#" className="text-muted-foreground transition-colors hover:text-primary">
+                <Link to="/quem-somos" className="text-muted-foreground transition-colors hover:text-primary">
                   Contacto
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
