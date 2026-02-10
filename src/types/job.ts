@@ -5,7 +5,7 @@ export interface Job {
   title: string;
   company: string;
   location: string;
-  type: 'full-time' | 'part-time';
+  type: 'full-time' | 'part-time' | 'internship';
   isRemote: boolean;
   isUrgent: boolean;
   salary?: string;
@@ -70,7 +70,7 @@ export type JobCategory =
   | 'hr'
   | 'operations';
 
-export type JobType = 'all' | 'full-time' | 'part-time';
+export type JobType = 'all' | 'full-time' | 'part-time' | 'internship';
 
 export interface JobFilters {
   search: string;
