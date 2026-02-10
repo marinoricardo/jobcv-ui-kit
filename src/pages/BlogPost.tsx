@@ -75,22 +75,125 @@
  
    // Mock content for the post
    const mockContent = `
-     <p>O mercado de trabalho moçambicano está em constante evolução, e preparar um currículo que se destaque é fundamental para conseguir a vaga dos seus sonhos.</p>
-     
-     <h2>1. Estruture o seu CV de forma clara</h2>
-     <p>Um CV bem estruturado facilita a leitura e demonstra organização. Comece com os seus dados pessoais, seguidos de um breve resumo profissional, experiência, formação e competências.</p>
-     
-     <h2>2. Destaque as suas conquistas</h2>
-     <p>Em vez de apenas listar responsabilidades, foque nas conquistas e resultados que obteve em cada posição. Use números e métricas sempre que possível.</p>
-     
-     <h2>3. Adapte o CV para cada vaga</h2>
-     <p>Personalize o seu currículo para cada candidatura, destacando as competências e experiências mais relevantes para a posição.</p>
-     
-     <h2>4. Mantenha-o actualizado</h2>
-     <p>Revise regularmente o seu CV para adicionar novas competências, formações e experiências. Um CV desactualizado pode prejudicar as suas chances.</p>
-     
-     <h2>5. Revise a ortografia</h2>
-     <p>Erros de ortografia ou gramática podem transmitir falta de atenção aos detalhes. Revise várias vezes e peça a alguém para verificar.</p>
+      <h1>Como preparar um CV que se destaca no mercado moçambicano</h1>
+
+    <p>Procurar emprego em Moçambique pode ser um desafio. Todos os dias, milhares de candidatos enviam currículos para vagas em bancos, ONGs, empresas de telecomunicações, indústrias, startups e instituições públicas — e a maioria nunca recebe resposta. O problema, na maior parte das vezes, não é falta de talento, mas sim a forma como esse talento é apresentado.</p>
+
+    <p>O currículo (CV) é o teu primeiro contacto com o recrutador. Antes mesmo de uma entrevista, antes de um telefonema, antes de qualquer explicação, é o teu CV que fala por ti. E ele tem poucos segundos para cumprir essa missão.</p>
+
+    <p class="emoji">👉 Dica rápida:</p>
+    <p>Se ainda não tens um CV bem estruturado ou queres modernizar o teu, plataformas como o <strong>MeuCV</strong> permitem criar currículos profissionais em poucos minutos, já adaptados ao mercado moçambicano.</p>
+
+    <p>Neste artigo completo, vais aprender como preparar um CV que realmente se destaca no mercado moçambicano, alinhado com as expectativas dos recrutadores locais, evitando erros comuns e aumentando significativamente as tuas hipóteses de ser chamado para entrevistas.</p>
+
+    <h2>1. Entender o mercado de trabalho moçambicano</h2>
+    <p>Antes de escrever ou atualizar o teu CV, é importante compreender o contexto do mercado de trabalho em Moçambique.</p>
+    <p>A maioria dos recrutadores moçambicanos valoriza:</p>
+    <ul>
+        <li>Clareza e objetividade</li>
+        <li>Experiência prática (mesmo estágios ou trabalho informal)</li>
+        <li>Competências técnicas relevantes</li>
+        <li>Boa apresentação do documento</li>
+        <li>Comunicação clara em português (e inglês, quando aplicável)</li>
+    </ul>
+    <p>Ao mesmo tempo, muitos currículos são descartados por serem confusos, genéricos ou visualmente desorganizados.</p>
+
+    <div class="note">
+        📌 Nota importante: um CV bem formatado facilita muito esta primeira triagem. Ferramentas como o <strong>MeuCV</strong> já seguem estruturas aprovadas por recrutadores, evitando erros comuns logo de início.
+    </div>
+
+    <h2>2. Estrutura ideal de um CV profissional</h2>
+    <p>Um currículo bem estruturado aumenta as chances de ser lido até ao fim. No mercado moçambicano, a estrutura mais eficaz costuma ser:</p>
+    <ul>
+        <li>Dados pessoais</li>
+        <li>Perfil profissional</li>
+        <li>Experiência profissional</li>
+        <li>Formação académica</li>
+        <li>Competências</li>
+        <li>Idiomas</li>
+        <li>Informações adicionais</li>
+    </ul>
+    <p class="emoji">👉 Se não sabes por onde começar, o <strong>MeuCV</strong> já oferece modelos prontos com esta estrutura, bastando preencher os teus dados.</p>
+
+    <h2>3. Dados pessoais: menos é mais</h2>
+    <p>Inclui apenas:</p>
+    <ul>
+        <li>Nome completo</li>
+        <li>Telefone ativo</li>
+        <li>E-mail profissional</li>
+        <li>Cidade/província</li>
+    </ul>
+    <p>Evita informações como BI, estado civil ou endereço completo. Se incluíres foto, opta por uma imagem profissional e neutra.</p>
+    <div class="note">
+        💡 Dica prática: muitos candidatos perdem oportunidades por detalhes simples. Um CV criado numa plataforma dedicada como o <strong>MeuCV</strong> já elimina esses excessos automaticamente.
+    </div>
+
+    <h2>4. Perfil profissional: o teu resumo estratégico</h2>
+    <p>O perfil profissional é um pequeno parágrafo que resume quem és e o que procuras.</p>
+    <p><em>Exemplo:</em></p>
+    <p>Profissional da área administrativa com experiência em gestão documental e atendimento ao cliente, à procura de novas oportunidades de crescimento profissional.</p>
+    <div class="note">
+        📍 CTA discreto: no <strong>MeuCV</strong>, este resumo é um campo guiado — a plataforma ajuda-te a escrever um perfil claro mesmo que não saibas por onde começar.
+    </div>
+
+    <h2>5. Experiência profissional: mostra impacto, não só tarefas</h2>
+    <p>Sempre que possível, descreve resultados e responsabilidades reais. Mesmo trabalhos informais contam, desde que bem apresentados.</p>
+    <p class="emoji">👉 Lembra-te:</p>
+    <p>Um CV bem organizado valoriza até pequenas experiências. É por isso que muitos candidatos usam o <strong>MeuCV</strong> para estruturar melhor aquilo que já fizeram, sem inventar nem exagerar.</p>
+
+    <h2>6. Formação académica: simples e objetiva</h2>
+    <p>Indica apenas o essencial:</p>
+    <ul>
+        <li>Curso</li>
+        <li>Instituição</li>
+        <li>Ano ou situação atual</li>
+    </ul>
+    <p>Evita listas longas ou informação desnecessária.</p>
+
+    <h2>7. Competências que fazem diferença</h2>
+    <p>Seleciona apenas competências relevantes para a vaga.</p>
+    <ul>
+        <li>Técnicas (Excel, sistemas, ferramentas)</li>
+        <li>Comportamentais (organização, comunicação, trabalho em equipa)</li>
+    </ul>
+    <div class="note">
+        📌 Dica: plataformas como o <strong>MeuCV</strong> ajudam a organizar estas competências de forma visual e profissional, facilitando a leitura pelo recrutador.
+    </div>
+
+    <h2>8. Idiomas: sê honesto</h2>
+    <p>Indica apenas idiomas que realmente dominas. O inglês continua a ser um diferencial forte em Moçambique.</p>
+
+    <h2>9. Layout e apresentação: o visual conta (e muito)</h2>
+    <p>Um CV desorganizado pode ser descartado mesmo com bom conteúdo.</p>
+    <ul>
+        <li>Fonte simples</li>
+        <li>Espaçamento equilibrado</li>
+        <li>No máximo 2 páginas</li>
+        <li>Design limpo</li>
+    </ul>
+    <p class="emoji">👉 Aqui está o pulo do gato:</p>
+    <p>Criar o CV no <strong>MeuCV</strong> garante um layout profissional, moderno e compatível com impressão e PDF — sem precisares de saber design.</p>
+
+    <h2>10. Erros comuns que deves evitar</h2>
+    <ul>
+        <li>Erros ortográficos</li>
+        <li>CV genérico para todas as vagas</li>
+        <li>Informações falsas</li>
+        <li>Documentos longos demais</li>
+    </ul>
+    <div class="note">
+        📍 CTA leve: se queres evitar estes erros, usar uma plataforma dedicada como o <strong>MeuCV</strong> reduz drasticamente esse risco.
+    </div>
+
+    <h2>11. Adapta o CV para cada vaga</h2>
+    <p>Personalizar o CV aumenta muito as hipóteses de sucesso. Pequenos ajustes fazem grande diferença — e são rápidos quando o CV já está bem estruturado.</p>
+    <p class="emoji">👉 Com o <strong>MeuCV</strong>, podes editar e gerar novas versões do teu currículo em minutos, adaptando para diferentes oportunidades.</p>
+
+    <h2>12. Conclusão: o teu próximo passo começa agora</h2>
+    <p>Um bom CV não garante emprego, mas um CV fraco quase garante rejeição. No mercado moçambicano, onde a concorrência é elevada, apresentar bem o teu perfil é essencial.</p>
+    <p>Se estás à procura de emprego, a mudar de carreira ou simplesmente queres estar preparado para a próxima oportunidade, começa pelo básico: um currículo claro, profissional e estratégico.</p>
+    
+    <a href="https://www.meucv.com" class="cta">🚀 Criar ou melhorar o meu CV agora</a>
    `;
  
    return (
