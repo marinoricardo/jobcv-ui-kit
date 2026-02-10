@@ -36,16 +36,6 @@ export function Header() {
             Vagas
           </Link>
           <Link
-            to="/empresas"
-            className={`rounded-lg px-4 py-2 text-sm font-medium transition-colors ${
-              isActive('/empresas') 
-                ? 'bg-accent text-accent-foreground' 
-                : 'text-muted-foreground hover:bg-secondary hover:text-foreground'
-            }`}
-          >
-            Empresas
-          </Link>
-          <Link
             to="/blog"
             className={`rounded-lg px-4 py-2 text-sm font-medium transition-colors ${
               isActive('/blog') 
@@ -97,15 +87,6 @@ export function Header() {
               }`}
             >
               Vagas
-            </Link>
-            <Link
-              to="/empresas"
-              onClick={() => setIsMenuOpen(false)}
-              className={`rounded-lg px-4 py-3 text-sm font-medium ${
-                isActive('/empresas') ? 'bg-accent text-accent-foreground' : 'text-muted-foreground'
-              }`}
-            >
-              Empresas
             </Link>
             <Link
               to="/blog"

@@ -75,8 +75,36 @@ import { SimilarJobs } from '@/components/SimilarJobs';
    };
  
    return (
-     <div className="min-h-screen bg-background">
-       <Header />
+    <div className="min-h-screen bg-background">
+        <Header />
+
+        {/* SEO - JSON-LD Structured Data */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "JobPosting",
+              title: job.title,
+              description: job.description,
+              datePosted: job.postedAt,
+              employmentType: job.type === 'full-time' ? 'FULL_TIME' : 'PART_TIME',
+              jobLocation: {
+                "@type": "Place",
+                address: {
+                  "@type": "PostalAddress",
+                  addressLocality: job.location,
+                  addressCountry: "MZ",
+                },
+              },
+              hiringOrganization: {
+                "@type": "Organization",
+                name: job.company,
+              },
+              ...(job.isRemote && { jobLocationType: "TELECOMMUTE" }),
+            }),
+          }}
+        />
  
        {/* Breadcrumb */}
        <div className="border-b border-border bg-card">
@@ -113,9 +141,12 @@ import { SimilarJobs } from '@/components/SimilarJobs';
                  </Badge>
                </div>
  
-               <h1 className="text-2xl md:text-3xl font-bold text-foreground mb-4">
-                 {job.title}
-               </h1>
+                <h1 className="text-2xl md:text-3xl font-bold text-foreground mb-2">
+                  {job.title}
+                </h1>
+                <p className="text-sm text-muted-foreground mb-4">
+                  {job.company} · {job.location}
+                </p>
  
                <div className="flex flex-wrap items-center gap-4 text-muted-foreground mb-6">
                  <div className="flex items-center gap-2">
@@ -178,14 +209,7 @@ import { SimilarJobs } from '@/components/SimilarJobs';
              <div className="sticky top-20 space-y-4">
                {/* Apply Card */}
                <div className="rounded-2xl border border-border bg-card p-6">
-                 <Button 
-                   size="lg" 
-                   className="w-full mb-3"
-                   onClick={() => setIsApplicationOpen(true)}
-                 >
-                   Candidatar-se Agora
-                 </Button>
-                 <div className="flex gap-2">
+                  <div className="flex gap-2">
                    <Button 
                      variant="outline" 
                      className="flex-1"
